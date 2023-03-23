@@ -20,7 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::post('create-tariff', [\App\Http\Controllers\TariffController::class, 'createTariff']);
-Route::get('getTariffs', [\App\Http\Controllers\TariffController::class, 'getAllTariffs']);
+Route::get('get-tariffs', [\App\Http\Controllers\TariffController::class, 'getAllTariffs']);
 
 Route::post('create-credit-account', [\App\Http\Controllers\CreditController::class, 'createCreditAccount']);
 Route::get('details-credit-account', [\App\Http\Controllers\CreditController::class, 'detailsCreditAccount']);
