@@ -11,7 +11,7 @@ Route::post('create-tariff', [\App\Http\Controllers\TariffController::class, 'cr
 Route::get('tariffs/all', [\App\Http\Controllers\TariffController::class, 'getAllTariffs']);
 
 Route::get('credit-accounts', [\App\Http\Controllers\CreditController::class, 'creditAccounts']);
-Route::get('details-credit-account', [\App\Http\Controllers\CreditController::class, 'detailsCreditAccount']);
+Route::get('credit-accounts/{id}', [\App\Http\Controllers\CreditController::class, 'detailsCreditAccount'])->where('id', '[0-9]+');
 Route::post('create-credit-account', [\App\Http\Controllers\CreditController::class, 'createCreditAccount']);
 Route::post('withdrawal-credit-account', [\App\Http\Controllers\CreditController::class, 'withdrawalCreditAccount']);
 Route::post('fill-credit-account', [\App\Http\Controllers\CreditController::class, 'fillCreditAccount']);

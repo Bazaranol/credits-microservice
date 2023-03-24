@@ -12,7 +12,8 @@ class CreditController extends Controller
 {
     public function createCreditAccount(Request $request){
         $data = Tariff::where('id', $request->tariffId)->first();
-        Credit::insert([
+
+        $id = Credit::insertGetId([
             'ownerId' => $request->ownerId,
             'isClosed'=>0,
             'balance' => $data->balance,
@@ -23,7 +24,7 @@ class CreditController extends Controller
         ]);
 
         return response()->json([
-            'status' => 'success'
+            'id' => $id,
         ]);
     }
 
