@@ -26,21 +26,17 @@ class CreditController extends Controller
             'status' => 'success'
         ]);
     }
+
+    public function creditAccounts(Request $request) {
+        $accounts = Credit::where('ownerId', $request->ownerId)->get();
+
+        return response()->json($accounts);
+    }
+
     public function detailsCreditAccount(Request $request){
         $accountData = Credit::where('id', $request->id)->first();
-        return response()->json([
-            'status' => 'success',
-            'data' => [
-                'id' => $accountData->id,
-                'balance' => $accountData->balance,
-                'ownerId' => $accountData->ownerId,
-                'debt'=> $accountData->debt,
-                'accountNumber'=> $accountData->debt,
-                'tariffId'=> $accountData->tariffId,
-                'isClosed'=> $accountData->isClosed,
-                'percent'=>$accountData->percent,
-            ]
-        ]);
+
+        return response()->json($accountData);
     }
     public function fillCreditAccount(Request $request){
         $validated=$request->validate([

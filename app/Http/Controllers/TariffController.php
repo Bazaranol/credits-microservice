@@ -18,9 +18,8 @@ class TariffController extends Controller
             'percent' => $request->percent,
             'balance' => $request->balance,
         ]);
-        return response()->json([
-            'status' => 'success'
-        ]);
+
+        return $this->getAllTariffs();
     }
 
     public function getAllTariffs(){
